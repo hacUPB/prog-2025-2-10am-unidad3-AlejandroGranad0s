@@ -1,2 +1,3 @@
 numero = int(input ("ingrese un numero entero: "))
-print(numero % 3)
+if numero % 3 == 0:
+print(f"{numero} es divisible entre 3)
