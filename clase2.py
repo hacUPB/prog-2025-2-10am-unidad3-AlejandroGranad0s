@@ -37,3 +37,23 @@ else:
 for cont in range(5, 20, 1):
     print(cont)
 '''
+# usando f(range)
+'''
+numero = int(input("ingrese un numero entero positivo: "))
+while numero < 1:
+      numero = int(input("Ingrese un numero entero positivo: "))
+acum = 0
+for cont in range(1, numero+1):
+        if cont % 2 == 0:
+            acum += cont
+print(f"la suma de los pares es: {acum}")
+'''
+# imprimir mensaje
+'''
+mensaje = "Universidad Pontificia Bolivariana"
+numero = int(input("ingrese el numero entero positivo de las veces que desea imprimir: "))
+while numero < 0:
+    numero = int(input("ingrese un numero entero positivo: "))
+for cont in range(0, numero):
+    print(f"{mensaje}")
+'''
