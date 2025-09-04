@@ -24,16 +24,16 @@ while control == True:
             print("Modo seleccionado, Remolque y carreteo")
             resultado = num1 - num2
         case "10":
-            print("Modo seleccionado, multiplicacion")
+            print("Modo seleccionado, Estacionamiento, amarre, almacenamiento, y retorno a servicio")
             resultado = num1 * num2
         case "11":
-            print("Modo seleccionado, sdv")
+            print("Modo seleccionado, Rotulos")
             resultado = num1 / num2
         case "12":
-            print("Modo seleccionado, suma")
+            print("Modo seleccionado, Servicing")
             resultado = num1 + num2
         case "18":
-            print("Modo seleccionado, resta")
+            print("Modo seleccionado, Analisis de vibracion")
             resultado = num1 - num2
         case "21":
             print("Modo seleccionado, multiplicacion")
