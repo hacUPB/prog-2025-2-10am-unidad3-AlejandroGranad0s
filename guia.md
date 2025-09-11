@@ -17,48 +17,39 @@ Nota: Si se da el caso de perdida, el programa debe poder volver a hacer el proc
 | ----------- | ---------------- | ------------------------------------------------------------------------------ |
 | W         | Entrada          | Peso total del avión ingresado por el usuario (en Newtons o kg).               |
 | S         | Entrada          | Superficie alar ingresada por el usuario (en m²).                              |
-| CLmax    | Entrada          | Coeficiente máximo de sustentación, ingresado por el usuario.                  |
-| rho       | Entrada          | Densidad del aire, ingresada por el usuario (en kg/m³).                        |
+| Cl   | Entrada          | Coeficiente máximo de sustentación, ingresado por el usuario.                  |
+| D     | Entrada          | Densidad del aire, ingresada por el usuario (en kg/m³).                        |
 | V_stall   | Cálculo/Salida   | Velocidad de pérdida calculada con la fórmula.                                 |
 | V_actual | Entrada          | Velocidad actual del avión, pedida al usuario en cada iteración.               |
 | estado    | Salida           | Mensaje que indica si el avión vuela seguro o entra en pérdida.                |
-| i         | Control de bucle | Contador de las iteraciones (ej. segundos de simulación).                      |
-| continuar | Condicional      | Variable de control para decidir si el usuario sigue o finaliza la simulación. |
+| contador        | Control de bucle | Contador de las iteraciones (ej. segundos de simulación).                      |
+
 
 ```
 Inicio
-
-  Escribir "Simulación de velocidad de pérdida (Stall Speed)"
-
-  Leer W
-  Leer S
-  Leer CLmax
-  Leer rho
-
-  Llamar a función calcular_stall(W, S, CLmax, rho)
-  Guardar resultado en V_stall
-
-  Escribir "La velocidad de pérdida calculada es:", V_stall
-
-  Inicializar i = 1
-
-  Mientras (verdadero)
-      Escribir "Iteración", i
-      Leer V_actual
-
-      Si V_actual == 0 entonces
-          Escribir "Simulación terminada por el usuario"
-          Salir del bucle
-
-      Si V_actual > V_stall entonces
-          Escribir " Seguro: el avión está por encima de la velocidad de pérdida."
-      Sino
-          Escribir "PRECAUCIÓN VELOCIDAD DE PERDIDA, AUMENTAR LA VELOCIDAD"
-      Fin Si
-
-      Incrementar i = i + 1
-  Fin Mientras
-
+    contador = 0
+    Mientras contador < 10 :
+          Escribir "Ingrese el peso:"
+            leer W
+          Escribir "Ingrese la superficie alar:"
+            leer S
+          Escribir "Ingrese el Coeficiente de sustentacion:"
+            leer Cl
+          Escribir "Ingrese la densidad del aire:"
+            leer D
+          V_stall = sqrt( (2*W) / (D*S*Cl))
+          Lista[contador] = V_stall
+          contador = contador + 1
+          Si V_actual > V_stall entonces
+            Escribir " Seguro: el avión está por encima de la velocidad de pérdida."
+          Sino
+            Escribir "PRECAUCIÓN VELOCIDAD DE PERDIDA, AUMENTAR LA VELOCIDAD"
+          Fin Si
+    Fin Mientras
+    Desde contador = 0 hasta contador = 6
+         Escribir "valores registrados:"
+         Escribir Lista[contador]
+    Fin Desde
 Fin
 
 Función calcular_stall(W, S, CLmax, rho):
