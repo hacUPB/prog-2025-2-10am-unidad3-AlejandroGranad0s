@@ -40,13 +40,21 @@ Inicio
           V_stall = sqrt( (2*W) / (D*S*Cl))
           Lista[contador] = V_stall
           contador = contador + 1
-          Si V_actual > V_stall entonces
-            Escribir " Seguro: el avión está por encima de la velocidad de pérdida."
-          Sino
-            Escribir "PRECAUCIÓN VELOCIDAD DE PERDIDA, AUMENTAR LA VELOCIDAD"
-          Fin Si
+            Escribir "Ingrese 0 si desea salir 0 ingrese el valor de la velocidad para continuar"
+            Escribir "Ingrese el valor de velocidad"
+            leer V_actual
+            Si V_actual == 0 entonces
+              Escribir "Saliendo"
+              Fin bucle
+            Sino
+              Si V_actual > V_stall entonces
+                Escribir " Seguro: el avión está por encima de la velocidad de pérdida."
+              Sino
+                Escribir "PRECAUCIÓN VELOCIDAD DE PERDIDA, AUMENTAR LA VELOCIDAD"
+              Fin Si
+            Fin Si
     Fin Mientras
-    Desde contador = 0 hasta contador = 6
+    Desde contador = 0 hasta contador = 10
          Escribir "valores registrados:"
          Escribir Lista[contador]
     Fin Desde
