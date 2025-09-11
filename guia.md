@@ -40,7 +40,7 @@ Inicio
           V_stall = sqrt( (2*W) / (D*S*Cl))
           Lista[contador] = V_stall
           contador = contador + 1
-            Escribir "Ingrese 0 si desea salir 0 ingrese el valor de la velocidad para continuar"
+            Escribir "Ingrese 0 si desea salir ó ingrese el valor de la velocidad para continuar"
             Escribir "Ingrese el valor de velocidad"
             leer V_actual
             Si V_actual == 0 entonces
@@ -63,7 +63,7 @@ Fin
 Función calcular_stall(W, S, CLmax, rho):
     devolver sqrt( (2*W) / (rho*S*CLmax) )
 ```
-
+#Pedimos a la IA la base para el codigo sin, embargo este no es el codigo que nos dio la IA
 
 
 
@@ -112,7 +112,7 @@ Inicio
       Escribir "Nueva altitud: ", altitud
 
       Si roc < 1 entonces
-          Mostrar "¡Advertencia! El avión casi no asciende."
+          Mostrar "¡Advertencia! El avión no asciende lo suficiente."
       Fin Si
 
       Escribir "¿Desea cambiar la potencia?"
@@ -135,4 +135,6 @@ Fin
 
 Función calcular_ROC(potencia, densidad):
     devolver (potencia * densidad) / 100
+
 ```
+#Uso de IA aplicado
