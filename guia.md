@@ -137,4 +137,57 @@ Función calcular_ROC(potencia, densidad):
     devolver (potencia * densidad) / 100
 
 ```
+#angulo ataque
+
+| Variable | Tipo de variable              | Comentario                                                                         |
+| -------- | ----------------------------- | ---------------------------------------------------------------------------------- |
+| contador | De control (entero)           | Cuenta los segundos de simulación                                                  |
+| W        | Entrada (entero)              | Peso del avión                                                                     |
+| rho      | Entrada (entero)              | Densidad del aire                                                                  |
+| S        | Entrada (entero)              | Superficie alar                                                                    |
+| CL       | Entrada (entero)              | Coeficiente de sustentación                                                        |
+| CD       | Entrada (entero)              | Coeficiente de arrastre                                                            |
+| V        | Entrada/actualizable (entero) | Velocidad del avión, cambia según decisión del usuario                             |
+| L        | Cálculo (entero)              | Sustentación                                                                       |
+| D        | Cálculo (entero)              | Arrastre                                                                           |
+| theta    | Cálculo (entero aproximado)   | Ángulo de ascenso en grados                                                        |
+| decision | Condicional (entero)          | Indica si el usuario aumenta, disminuye, mantiene la velocidad o sale del programa |
+
+```
+Inicio
+    Definir función calcular_angulo(rho, V, S, CL, CD, W):
+        L = (rho * V^2 * S * CL) // 2
+        D = (rho * V^2 * S * CD) // 2
+        relacion = (L - D) // W
+        theta = arctan(relacion) * (180 / pi)
+        Retornar theta
+
+    contador = 0
+    Leer W, rho, S, CL, CD, V
+
+    Mientras contador < 10 hacer:
+        theta = calcular_angulo(rho, V, S, CL, CD, W)
+        Mostrar segundo actual, velocidad, ángulo
+
+        Si theta < 0 entonces
+            Mostrar "⚠️ El avión no puede seguir ascendiendo"
+            Terminar bucle
+
+        Mostrar "Ingrese 1 para aumentar velocidad, 2 para disminuir, 3 para mantener, 0 para salir"
+        Leer decision
+
+        Si decision == 0 entonces
+            Mostrar "🚪 Saliendo de la simulación"
+            Terminar bucle
+        Sino si decision == 1 entonces
+            V = V + 10
+        Sino si decision == 2 entonces
+            V = V - 10
+        Sino si decision == 3 entonces
+            V = V (se mantiene igual)
+
+        contador = contador + 1
+    Fin mientras
+Fin
+```
 #Uso de IA aplicado
